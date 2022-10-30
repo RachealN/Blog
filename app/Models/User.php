@@ -52,4 +52,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    public function appointments() {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function isAdmin() {
+        return (bool) $this->id === 1;
+    }
 }

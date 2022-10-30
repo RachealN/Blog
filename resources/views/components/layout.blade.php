@@ -1,6 +1,19 @@
 <!doctype html>
 
 <title>Laravel From Scratch Blog</title>
+
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,9 +30,13 @@
 
         <div class="mt-8 md:mt-0">
             @auth
-                <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }} !</span>
+                <span class="text-xs font-bold uppercase text-blue-500">Welcome, {{ auth()->user()->name }} !</span>
+                <br>
+                <a href="#" class="text-xs font-semibold text-blue-500 ">Schedule Appointment with us</a>
+                <br>
+                <a href="/#newsletter" class="text-xs font-semibold text-blue-500 ">Subscribe to our Newsletter</a>
 
-                <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 ml-6">
+                <form method="POST" action="/logout" class="text-xs font-semibold text-blue-500 mt-3">
                     @csrf
                     <button type="submit"> Log Out</button>
                 </form>
@@ -33,9 +50,7 @@
                 </a>
             @endauth
 
-{{--                <a href="#newsletter"--}}
-{{--                   class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">Subscribe for Updates--}}
-{{--                </a>--}}
+
         </div>
     </nav>
 

@@ -1,8 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
+        "dev": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
@@ -10,9 +9,38 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
+        "bootstrap": "^5.1.3",
+        "laravel-mix": "^6.0.43",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "postcss": "^8.1.14",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.11",
+        "sass-loader": "^11.0.1",
+        "script-loader": "^0.7.2",
+        "vue": "^2.6.12",
+        "vue-currency-filter": "2.3.0",
+        "vue-datetime": "1.0.0-beta.14",
+        "vue-loader": "^15.10.0",
+        "vue-range-slider": "0.6.0",
+        "vue-router": "3.4.9",
+        "vue-tel-input": "2.0.10",
+        "vue-template-compiler": "^2.6.12",
+        "vue-the-mask": "0.11.1",
+        "vue-wysiwyg": "1.7.2",
+        "vuedraggable": "2.24.3",
+        "vuex": "^4.0.2",
+        "vuex-persistedstate": "^4.1.0"
+    },
+    "dependencies": {
+        "@fullcalendar/core": "^4.0.1",
+        "@fullcalendar/daygrid": "^5.11.3",
+        "@fullcalendar/interaction": "^5.11.3",
+        "@fullcalendar/timegrid": "^5.11.3",
+        "@fullcalendar/vue": "^5.11.2",
+        "cross-env": "^5.1.4",
+        "moment": "^2.29.4",
+        "noty": "^3.2.0-beta-deprecated"
     }
 }
