@@ -1,13 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\EventController;
+//use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SessionsController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -36,43 +37,27 @@ Route::delete('/appointments/{appointment}', [AppointmentController::class, 'des
 
 
 Route::get('/', [PostController::class, 'index'])->name('home');
-//    $posts = Post::when($request->search, function ($query, $search) {
-//        return $query->where('title', 'like', $search = "%{$search}%")
-//            ->orWhere('body', 'like', $search);
-//    })->latest()->get();
-//
-//    $categories = Category::all();
-//
-//    return view('posts', compact('posts', 'categories'));
-//)->name('home');
-
-Route::post('newsletter', NewsletterController::class);
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
-Route::get('categories/{category:slug}', [CategoryController::class,'show']);
+Route::post('newsletter', NewsletterController::class);
+
+Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 
-Route::post('logout', [SessionController::class,'destroy'])->middleware('auth');
-Route::get('login', [SessionController::class,'create'])->middleware('guest');
-Route::post('login', [SessionController::class,'store'])->middleware('guest');
-
-Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisterController::class, 'create']);
-    Route::post('register', [RegisterController::class, 'store']);
-});
-
-Route::get('authors/{author:username}', function (User $author){
-    return view('posts',[
-        'posts' => $author->posts,
-    ]);
-
-}
-
+// Admin Section
+//Route::middleware('can:admin')->group(function () {
+    Route::resource('admin/posts', AdminPostController::class);
+//        ->except('show');
+//});
 
 
 
-
-);
 

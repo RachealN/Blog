@@ -13,7 +13,8 @@
                 @endforeach
             </div>
             @endif
-            {{ $posts->links() }}
+
+{{--            {{ $posts->links() }}--}}
         @else
            <p class="text-center">No posts yet, check back later....</p>
         @endif

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-class SessionController extends Controller
+class SessionsController extends Controller
 {
     public function create()
     {
