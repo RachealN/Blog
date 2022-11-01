@@ -11,26 +11,24 @@
     </div>
 </template>
 <script>
-//Fullcalendar and axios modules
 import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import axios from 'axios'
 export default {
     components: {
-        FullCalendar // make the <FullCalendar> tag available
+        FullCalendar
     },
     data() {
         return {
             calendarOptions: {
                 plugins: [ dayGridPlugin ],
                 initialView: 'dayGridMonth',
-                //Dynamic Event Source
+
                 eventSources: [
                     {
                         events(start, callback) {
-                            console.log('Log at this endpoint');
                             axios.get('http://127.0.0.1:8000/events/').then(response => {
-                                callback(response.data.calendardata)
+                                response.data.calendardata
                             })
                         }
                     }

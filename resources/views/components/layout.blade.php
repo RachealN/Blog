@@ -51,8 +51,7 @@
                         </button>
                     </x-slot>
 
-{{--                    @admin--}}
-{{--                    @if(auth()->user()->can('admin'))--}}
+                    @admin
                     <x-dropdown-item
                         href="/admin/posts"
                         :active="request()->is('admin/posts')"
@@ -66,8 +65,7 @@
                     >
                         New Post
                     </x-dropdown-item>
-{{--                    @endif--}}
-{{--                    @endadmin--}}
+                    @endadmin
 
                     <x-dropdown-item
                         href="#"

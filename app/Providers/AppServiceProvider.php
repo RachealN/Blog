@@ -30,9 +30,9 @@ class AppServiceProvider extends ServiceProvider
         //prevent against mass assignment globally
         // Model::unguard();
 
-//        Gate::define('admin', function (User $user) {
-//            return $user->username === 'Admin';
-//        });
+        Gate::define('admin', function (User $user) {
+            return $user->username === 'Admin';
+        });
 
         Blade::if('admin', function () {
             return request()->user()->can('admin');

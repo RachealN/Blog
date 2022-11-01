@@ -31,21 +31,6 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
 
-//        $assignee = (
-//            $request->assignee && auth()->user()->asAdmin ? $request->assignee : $assignee = auth()->user()->id;
-//        );
-//
-//        $appointment = new Appointment([
-//            'start' => $request->start,
-//            'end' => $request->end,
-//            'title' => $request->title,
-//            'description' => $request->description,
-//            'user_id' => $assignee
-//        ]);
-//
-//        $appointment->save();
-
-//        return $appointment;
     }
 
     /**

@@ -2,20 +2,13 @@
 
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\CategoryController;
-//use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
-use App\Services\Newsletter;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\ValidationException;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +22,10 @@ use Illuminate\Validation\ValidationException;
 */
 
 Route::get('/appointments', [AppointmentController::class, 'index']);
-Route::get('/appointments/filter', [AppointmentController::class, 'filter']);
-Route::post('/appointments/new',[AppointmentController::class, 'store'] );
-Route::patch('/appointments/{appointment}/edit', [AppointmentController::class, 'update']);
-Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
+//Route::get('/appointments/filter', [AppointmentController::class, 'filter']);
+//Route::post('/appointments/new',[AppointmentController::class, 'store'] );
+//Route::patch('/appointments/{appointment}/edit', [AppointmentController::class, 'update']);
+//Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
 Route::get("/appointments/events", [AppointmentController::class,'Events']);
 
 
