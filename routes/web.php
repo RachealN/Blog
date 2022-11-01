@@ -33,6 +33,7 @@ Route::get('/appointments/filter', [AppointmentController::class, 'filter']);
 Route::post('/appointments/new',[AppointmentController::class, 'store'] );
 Route::patch('/appointments/{appointment}/edit', [AppointmentController::class, 'update']);
 Route::delete('/appointments/{appointment}', [AppointmentController::class, 'destroy']);
+Route::get("/appointments/events", [AppointmentController::class,'Events']);
 
 
 

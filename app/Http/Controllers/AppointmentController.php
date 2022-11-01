@@ -17,6 +17,10 @@ class AppointmentController extends Controller
         return view('appointments.index');
     }
 
+    public function Events(){
+        $appointment = Appointment::all();
+        return response()->json(["calendardata" => $appointment]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -26,6 +30,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
 //        $assignee = (
 //            $request->assignee && auth()->user()->asAdmin ? $request->assignee : $assignee = auth()->user()->id;
 //        );
